@@ -1,0 +1,18 @@
+--Create a shoe store database
+
+CREATE TABLE Merchandise (id INTEGER PRIMARY KEY, name TEXT, size TEXT, color TEXT, width TEXT, inventory INTEGER, price INTEGER);
+
+INSERT INTO Merchandise VALUES
+(1, "BELLEVILLE MINI-MIL MINIMALIST COMBAT BOOTS", 9, "COYOTE", "REGULAR AND WIDE", 75, 160),
+(2, "CLASSIC MEN'S CASUAL VIBRAM FIVE FINGER", 9, "BLACK", "REGULAR", 25, 120),
+(3, "PRO 20 HALF FLD", 9, "PINK", "REGULAR", 10, 70),
+(4, "PRIMUS LITE III MENS", 9, "BLACK", "WIDE", 50, 150),
+(5, "AUTHENTIC 44 DX SHOE", 9, "CHECKERED", "REGULAR", 5, 80),
+(6, "1461 CORDUROY OXFORD SHOES", 9, "OXBLOOD", "REGULAR AND WIDE", 11, 72),
+(7, "FE LO 1920", 9, "OLIVE", "REGULAR", 35, 25);
+
+--Display the database organized by price
+SELECT * FROM Merchandise ORDER BY price ASC;
+
+--Display the total store inventory
+SELECT SUM(inventory) from Merchandise;
