@@ -1,3 +1,5 @@
+--Create a movie database
+
 CREATE TABLE topmovies(
    Rank        INTEGER,
    Title       TEXT,
@@ -113,18 +115,25 @@ INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,
 
 SELECT * FROM topmovies;
 
+--Display the Biggest Earning Movie Domestically
 SELECT Title, MAX(Domestic) AS Domestic FROM topmovies;
 
+--Display tHE Biggest Earning Movie Worldwide
 SELECT Title, MAX(Worldwide) AS Worldwide from topmovies;
 
+--Display the Smallest Earning Movie Domestically
 SELECT Title, MIN(Domestic) AS Domestic from topmovies;
 
+--Display the Smallest Earning Movie Worldwide
 SELECT Title, MIN (Worldwide) AS Worldwide from topmovies;
 
+--Display all Movies Domestic and Worldwide Percentages
 SELECT Title, ROUND(DomesticPct *100) AS "Domestic Percentage", ROUND(OverseasPct *100) AS "Worldwide Percentage"  FROM topmovies WHERE Studio = "Fox" ORDER BY DomesticPct DESC;
 
+--Display Pre-Year 2000 Movies Domestic and Worldwide Earnings by Year
 SELECT Year,Title, Domestic, Worldwide FROM topmovies 
 WHERE year <=2000 
 ORDER BY year ASC;
 
+--Display Studio's Average Domestic and Worldwide Earning by Domestic 
 SELECT Studio, AVG(Domestic), AVG(Worldwide) FROM topmovies GROUP BY Studio ORDER BY AVG(Domestic) ASC;
