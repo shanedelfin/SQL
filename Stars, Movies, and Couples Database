@@ -1,0 +1,36 @@
+--Display list of movie stars
+
+CREATE TABLE stars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);
+
+INSERT INTO stars ("name") VALUES 
+("Robert Pattinson"),
+("Kristin Stewart"),
+("Taylor LAUTNER"),
+("Willem Dafoe");
+
+--Display list of movies
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, name TEXT);
+
+INSERT INTO movies VALUES
+(1, "The Batman"),
+
+--Group stars together as coupes
+CREATE TABLE couples (id INTEGER PRIMARY KEY AUTOINCREMENT, person1_id TEXT, person2_id TEXT);
+
+INSERT INTO couples VALUES
+(
+
+--What movies are the stars featured in?
+
+SELECT name, movies FROM stars
+JOIN movies
+ON stars.id = movies.person_id;
+
+--Who's dated whom?
+
+SELECT a.name, b.name FROM couples
+JOIN stars a
+ON a.id = a.person1_id
+
+JOIN stars b
+ON b.id = b.person2_id;
